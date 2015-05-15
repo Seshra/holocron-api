@@ -45,12 +45,11 @@ class Migration(migrations.Migration):
             fields=[
                 ('placement_id', models.AutoField(serialize=False, primary_key=True)),
                 ('placement_name', models.CharField(max_length=100)),
-                ('placement_url', models.CharField(max_length=100)),
                 ('end_date', models.DateField(verbose_name=b'End Date')),
                 ('created_on', models.DateTimeField(auto_now_add=True)),
                 ('updated', models.DateTimeField(auto_now=True)),
                 ('campaign', models.ForeignKey(to='api.Campaign')),
-                ('content', models.ForeignKey(to='api.Content')),
+                ('creative', models.ForeignKey(to='api.Content')),
                 ('medium', models.ForeignKey(to='api.Medium')),
             ],
         ),

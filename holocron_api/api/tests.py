@@ -363,10 +363,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test Placement",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
 
@@ -375,22 +375,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
-        response = self.client.post('/placement/', data, format='json')
-        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
-
-    def test_missing_url_placement_api(self):
-        self.make_pks()
-        data = {"placement_name": "Test",
-                "placement_url": "",
-                "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -399,10 +387,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -411,10 +399,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "1-1-2010",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -423,10 +411,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "January 1, 2020",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -436,9 +424,9 @@ class PlacementAPITest(APITestCase):
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
                 "campaign": "",
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -447,10 +435,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
                 "medium": "",
-                "source": 1,
-                "content": 1}
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -459,10 +447,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
                 "source": "",
-                "content": 1}
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -471,9 +459,9 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
                 "content": ""}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -484,9 +472,9 @@ class PlacementAPITest(APITestCase):
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
                 "campaign": 0,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -495,10 +483,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
                 "medium": 0,
-                "source": 1,
-                "content": 1}
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -507,10 +495,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
                 "source": 0,
-                "content": 1}
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -519,9 +507,9 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
                 "content": 0}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -532,9 +520,9 @@ class PlacementAPITest(APITestCase):
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
                 "campaign": -1,
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -543,10 +531,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
                 "medium": -1,
-                "source": 1,
-                "content": 1}
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -555,10 +543,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
                 "source": -1,
-                "content": 1}
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -567,9 +555,9 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
                 "content": -1}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
@@ -580,9 +568,9 @@ class PlacementAPITest(APITestCase):
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
                 "campaign": "One",
-                "medium": 1,
-                "source": 1,
-                "content": 1}
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -591,10 +579,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
                 "medium": "Medium",
-                "source": 1,
-                "content": 1}
+                "source": "https://holocron-api.com/source/1/",
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -603,10 +591,10 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
                 "source": "Test",
-                "content": 1}
+                "content": "https://holocron-api.com/content/1/"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
 
@@ -615,9 +603,9 @@ class PlacementAPITest(APITestCase):
         data = {"placement_name": "Test",
                 "placement_url": "www.testurl.com",
                 "end_date": "2040-01-01",
-                "campaign": 1,
-                "medium": 1,
-                "source": 1,
+                "campaign": "https://holocron-api.com/campaign/1/",
+                "medium": "https://holocron-api.com/medium/1/",
+                "source": "https://holocron-api.com/source/1/",
                 "content": "My Content"}
         response = self.client.post('/placement/', data, format='json')
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
